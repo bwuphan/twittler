@@ -3,25 +3,43 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <script>
+      var $body = $('body');
+      $body.html('<h1>Twittler</h1><div class = \'main\'</div> <button class = "button" name="button" value="OK" type="button">New Tweets</button>');
+      var $main = $('.main');
+      var index = streams.home.length - 1;
+      var count = index;
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+      function appendTweet(ndx){
+        var tweet = streams.home[ndx];
+        var $tweet = $('<p id = ' + tweet.user +'></p>');
+        $tweet.html('@' + tweet.user + ': ' + tweet.message + '<br>' + tweet.created_at);
+        $tweet.appendTo($main);
+      }
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+      function defaultTweets(){
+        count = index;
+        for(let i = 0; i < index; i++){
+          appendTweet(i);
         }
+      }
 
+      function refreshTweets(){
+        let tempCount = count + 10;
+        for(let i = count + 1; i < tempCount; i++){
+            appendTweet(i);
+        }
+      }
+      
+      $(document).ready(function(){
+        defaultTweets();
+        $('button').on('click', function(){
+          refreshTweets();
+        });
       });
-
     </script>
   </body>
 </html>
