@@ -1,19 +1,46 @@
 .button {
-    background-color: #55ACEE;
-    border: none;
+    background-color: white;
+    border: thin;
+    border-color: black;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     border-radius: 10px;
     font-family: Helvetica Neue;
     margin: auto;
     text-align: center;
+    cursor: pointer; 
+    color: #55ACEE;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 div{
 	font-size: 20px;
 	margin: auto;
 	text-align: center;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+em{
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 20px;
+	font-family: Helvetica Neue;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+em:hover{
+	text-decoration: underline;
+}
+h1{
+	font-family: Brush Script MT;
+	font-size: 75px;
+	text-align: center;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+body{
+	background-color: #55ACEE;
 }
