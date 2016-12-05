@@ -6,54 +6,6 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <script>
-      var $body = $('body');
-      $body.html('<h1>Twittler</h1><div class = \'main\'</div> <button class = "button" name="button" value="OK" type="button">New Twits</button>');
-      var $main = $('.main');
-      var index = streams.home.length - 1;
-      var count = index;
-
-      function appendTweet(ndx){
-        var tweet = streams.home[ndx];
-        var $tweet = $('<p class = ' + tweet.user +'></p>');
-        $tweet.html('<em id = \'user\'>@' + tweet.user + '</em>: ' + tweet.message + '<br>' + tweet.created_at);
-        $tweet.appendTo($main);
-      }
-
-      function defaultTweets(){
-        count = index;
-        for(let i = 0; i < index; i++){
-          appendTweet(i);
-        }
-      }
-
-      function refreshTweets(){
-        let tempCount = count + 10;
-        for(let i = count + 1; i < tempCount; i++){
-            appendTweet(i);
-        }
-      }
-      function hideOthers(name){
-        $(name).on('click', 'em', function(){
-          var users = ['.sharksforcheap', '.mracus', '.douglascalhoun', '.shawndrost'];
-          var nameIndex = users.indexOf(name);
-          users.splice(nameIndex, 1);
-          for(let i = 0; i < users.length; i++){
-            $(users[i]).hide();
-          }
-        });
-      }
-
-      $(document).ready(function(){
-        defaultTweets();
-        $('button').on('click', function(){
-          refreshTweets();
-        });
-        hideOthers('.mracus');
-        hideOthers('.sharksforcheap');
-        hideOthers('.douglascalhoun');
-        hideOthers('.shawndrost');
-      });
-    </script>
+    <script src = "twittlerJquery.js"></script>
   </body>
 </html>
